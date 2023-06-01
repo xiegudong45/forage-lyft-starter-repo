@@ -6,6 +6,8 @@ from car import Car
 from engine.capulet_engine import CapuletEngine
 from engine.sternman_engine import SternmanEngine
 from engine.willoughby_engine import WilloughbyEngine
+from tire.carrigan_tire import CarriganTire
+from tire.octoprime_tire import OctoprimeTire
 
 
 class CarFactory():
@@ -18,7 +20,8 @@ class CarFactory():
     ):
         engine = CapuletEngine(last_service_mileage, current_mileage)
         battery = SpindlerBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = OctoprimeTire([0, 0, 0, 0])
+        return Car(engine, battery, tire)
 
     @staticmethod
     def create_glissade(
@@ -29,7 +32,8 @@ class CarFactory():
     ):
         engine = WilloughbyEngine(last_service_mileage, current_mileage)
         battery = SpindlerBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = OctoprimeTire([0, 0, 0, 0])
+        return Car(engine, battery, tire)
 
     @staticmethod
     def create_palindrome(
@@ -39,7 +43,8 @@ class CarFactory():
     ):
         engine = SternmanEngine(warning_light_on)
         battery = SpindlerBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = OctoprimeTire([0, 0, 0, 0])
+        return Car(engine, battery, tire)
     
     @staticmethod
     def create_rorschach(
@@ -50,7 +55,8 @@ class CarFactory():
     ):
         engine = WilloughbyEngine(last_service_mileage, current_mileage)
         battery = NubbinBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = CarriganTire([0, 0, 0, 0])
+        return Car(engine, battery, tire)
         
     @staticmethod
     def create_thovex(
@@ -61,4 +67,5 @@ class CarFactory():
     ):
         engine = CapuletEngine(last_service_mileage, current_mileage)
         battery = NubbinBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = CarriganTire([0, 0, 0, 0])
+        return Car(engine, battery, tire)
